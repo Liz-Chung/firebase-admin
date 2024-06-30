@@ -7,13 +7,10 @@
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
-  "author": "Your Name",
+  "author": "Liz",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
     "firebase-admin": "^10.0.0"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.4"
   }
 }
