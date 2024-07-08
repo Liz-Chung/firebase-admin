@@ -1,6 +1,7 @@
-import { firestoreRequest, firestoreGetRequest } from './firebaseAdmin';
+import { firestoreRequest } from '../firebaseAdmin.js';
+import cors, { runMiddleware } from '../corsMiddleware.js';
 
-export default async (req, res) => {
+const firestoreHandler = async (req, res) => {
   await runMiddleware(req, res, cors);
 
   if (req.method === 'POST') {
@@ -37,3 +38,5 @@ async function firestoreGetRequest(queryParams) {
 
   return results;
 }
+
+export default firestoreHandler;

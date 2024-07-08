@@ -4,8 +4,8 @@
   "description": "Backend for handling Firebase Authentication",
   "type": "module",
   "scripts": {
-    "start": "node api/registerUser.js",
-    "dev": "nodemon api/registerUser.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "Liz",
   "license": "ISC",

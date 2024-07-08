@@ -1,15 +1,15 @@
-import admin from './firebaseAdmin';
-import cors, { runMiddleware } from '../corsMiddleware';
+import admin from '../firebaseAdmin.js';
+import cors, { runMiddleware } from '../corsMiddleware.jss';
 
-export default async (req, res) => {
+const registerUser = async (req, res) => {
   await runMiddleware(req, res, cors);
 
   if (req.method === 'POST') {
     const { email, password } = req.body;
     try {
       const userRecord = await admin.auth().createUser({
-        email,
-        password,
+        email: email,
+        password: password,
       });
       const token = await admin.auth().createCustomToken(userRecord.uid);
       res.status(201).send({ token });
@@ -20,3 +20,5 @@ export default async (req, res) => {
     res.status(405).send({ error: 'Method not allowed' });
   }
 };
+
+export default registerUser;

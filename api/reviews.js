@@ -1,7 +1,7 @@
-import admin from './firebaseAdmin';
-import cors, { runMiddleware } from '../corsMiddleware';
+import admin from '../firebaseAdmin.js';
+import cors, { runMiddleware } from '../corsMiddleware.js';
 
-export default async (req, res) => {
+const reviews = async (req, res) => {
   await runMiddleware(req, res, cors);
 
   if (req.method === 'POST') {
@@ -33,3 +33,5 @@ export default async (req, res) => {
     res.status(405).send({ error: 'Method not allowed' });
   }
 };
+
+export default reviews;

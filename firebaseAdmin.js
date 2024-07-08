@@ -1,18 +1,18 @@
 import * as admin from 'firebase-admin';
-import { validateFirestoreRequest } from '../validateFirestoreRequest';
+import { validateFirestoreRequest } from './validateFirestoreRequest';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
 if (!admin.apps.length) {
-  const firebasePrivateKey = process.env.FIREBASE_PRIVATE_KEY;
+  const firebasePrivateKey = process.env.VITE_FIREBASE_PRIVATE_KEY;
   admin.initializeApp({
     credential: admin.credential.cert({
-      projectId: process.env.FIREBASE_PROJECT_ID,
-      clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+      projectId: process.env.VITE_FIREBASE_PROJECT_ID,
+      clientEmail: process.env.VITE_FIREBASE_CLIENT_EMAIL,
       privateKey: firebasePrivateKey.replace(/\\n/g, '\n'),
     }),
-    databaseURL: `https://${process.env.FIREBASE_PROJECT_ID}.firebaseio.com`
+    databaseURL: `https://${process.env.VITE_FIREBASE_PROJECT_ID}.firebaseio.com`
   });
     console.log('Firebase Admin SDK initialized successfully');
 }
