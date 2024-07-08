@@ -1,5 +1,5 @@
 import * as admin from 'firebase-admin';
-import { validateFirestoreRequest } from './validateFirestoreRequest';
+import { validateFirestoreRequest } from '../validateFirestoreRequest';
 
 if (!admin.apps.length) {
   const firebasePrivateKey = process.env.FIREBASE_PRIVATE_KEY;

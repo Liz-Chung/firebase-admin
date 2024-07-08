@@ -8,6 +8,10 @@
     {
       "src": "api/firestoreHandler.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "api/firebaseAdmin.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [

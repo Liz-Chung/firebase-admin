@@ -1,4 +1,4 @@
-import { firestoreRequest } from '../firebaseAdmin';
+import { firestoreRequest } from './firebaseAdmin';
 import cors, { runMiddleware } from '../corsMiddleware';
 
 export default async (req, res) => {
