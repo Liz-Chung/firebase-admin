@@ -1,4 +1,4 @@
-import admin from '../firebaseAdmin';
+import admin, { firestoreRequest } from '../firebaseAdmin';
 
 export default async (req, res) => {
   if (req.method === 'POST') {

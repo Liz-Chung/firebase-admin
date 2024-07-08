@@ -1,4 +1,5 @@
 import * as admin from 'firebase-admin';
+import { validateFirestoreRequest } from './validateFirestoreRequest';
 
 if (!admin.apps.length) {
   const firebasePrivateKey = process.env.FIREBASE_PRIVATE_KEY;
@@ -10,6 +11,15 @@ if (!admin.apps.length) {
     }),
     databaseURL: `https://${process.env.FIREBASE_PROJECT_ID}.firebaseio.com`
   });
+}
+
+export async function firestoreRequest(params) {
+  try {
+    validateFirestoreRequest(params);
+  } catch (error) {
+    console.error('Firestore request validation failed:', error.message);
+    throw error;
+  }
 }
 
 export default admin;
