@@ -1,6 +1,6 @@
 import Cors from 'cors';
 
-const allowedOrigins = ['https://expo-hub.vercel.app'];
+const allowedOrigins = ['https://expo-hub.vercel.app', 'https://firebase-admin-seven.vercel.app'];
 
 const cors = Cors({
   methods: ['GET', 'HEAD', 'POST', 'PUT', 'DELETE'],
