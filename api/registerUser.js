@@ -1,6 +1,9 @@
-import admin, { firestoreRequest } from '../firebaseAdmin';
+import admin from '../firebaseAdmin';
+import cors, { runMiddleware } from '../corsMiddleware';
 
 export default async (req, res) => {
+  await runMiddleware(req, res, cors);
+
   if (req.method === 'POST') {
     const { email, password } = req.body;
     try {
