@@ -1,4 +1,4 @@
-import admin from '../firebaseAdmin.js';
+import admin from '../admin.js';
 import cors, { runMiddleware } from '../corsMiddleware.js';
 
 const reviews = async (req, res) => {
