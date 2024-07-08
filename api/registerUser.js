@@ -1,5 +1,5 @@
-import admin from '../firebaseAdmin.js';
-import cors, { runMiddleware } from '../corsMiddleware.js';
+import admin from '../firebaseAdmin';
+import cors, { runMiddleware } from '../corsMiddleware';
 
 export default async (req, res) => {
   await runMiddleware(req, res, cors);
