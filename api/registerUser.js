@@ -1,4 +1,4 @@
-import firebaseAdmin from '../firebaseAdmin';
+import admin from '../firebaseAdmin';
 import cors, { runMiddleware } from '../corsMiddleware';
 
 export default async (req, res) => {
@@ -7,11 +7,11 @@ export default async (req, res) => {
   if (req.method === 'POST') {
     const { email, password } = req.body;
     try {
-      const userRecord = await firebaseAdmin.auth().createUser({
+      const userRecord = await admin.auth().createUser({
         email: email,
         password: password,
       });
-      const token = await firebaseAdmin.auth().createCustomToken(userRecord.uid);
+      const token = await admin.auth().createCustomToken(userRecord.uid);
       res.status(201).send({ token });
     } catch (error) {
       res.status(400).send({ error: error.message });
