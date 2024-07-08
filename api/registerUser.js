@@ -8,8 +8,8 @@ export default async (req, res) => {
     const { email, password } = req.body;
     try {
       const userRecord = await admin.auth().createUser({
-        email: email,
-        password: password,
+        email,
+        password,
       });
       const token = await admin.auth().createCustomToken(userRecord.uid);
       res.status(201).send({ token });

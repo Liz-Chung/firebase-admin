@@ -14,6 +14,7 @@ if (!admin.apps.length) {
     }),
     databaseURL: `https://${process.env.FIREBASE_PROJECT_ID}.firebaseio.com`
   });
+    console.log('Firebase Admin SDK initialized successfully');
 }
 
 export async function firestoreRequest(params) {
@@ -23,6 +24,21 @@ export async function firestoreRequest(params) {
     console.error('Firestore request validation failed:', error.message);
     throw error;
   }
+}
+
+export async function firestoreGetRequest(queryParams) {
+  const db = admin.firestore();
+  const collection = db.collection('your-collection-name');
+  let query = collection;
+
+  if (queryParams.someField) {
+    query = query.where('someField', '==', queryParams.someField);
+  }
+
+  const snapshot = await query.get();
+  const results = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+  return results;
 }
 
 export default admin;
