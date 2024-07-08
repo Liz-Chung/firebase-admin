@@ -1,5 +1,8 @@
 import * as admin from 'firebase-admin';
 import { validateFirestoreRequest } from '../validateFirestoreRequest';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 if (!admin.apps.length) {
   const firebasePrivateKey = process.env.FIREBASE_PRIVATE_KEY;
